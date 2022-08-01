@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa 4</title>
+</head>
+
+</html>
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var tela = document.querySelector("canvas");
+    var pincel = tela.getContext("2d");
+    pincel.fillStyle = "white";
+    pincel.fillRect(0, 0, 600, 400);
+
+    function desenhaCirculo(x, y, raio) {
+
+        pincel.fillStyle = "pink";
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+
+    }
+
+
+    /*
+    for (var x = 20; x < 580; x++) {
+        pincel.clearRect(0, 0, 600, 400);
+        desenhaCirculo(x, 20, 10);
+    } //o for trabalha tao rapido que nao é possivel ver a animaçao da bolinha pelo canva
+    */
+
+    /*
+    function exibeMensagemNoConsole() {
+        console.log("Chamei função");
+     }
+     
+     setInterval(exibeMensagemNoConsole, 1000); //setInterval permite usarmos como porametro uma funçao para o navegador chamar. colocando o segundo parametro 1como 1000, a funçao sera chamada a cada 1 segundo
+     */
+
+    function limpaTela() {
+        pincel.clearRect(0, 0, 600, 400);
+    }
+
+    var x = 20;
+
+    function atualizaTela() {
+        limpaTela();
+        desenhaCirculo(x, 20, 10);
+        x++;
+    }
+
+    setInterval(atualizaTela, 20);
+</script>
